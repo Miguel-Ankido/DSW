@@ -58,4 +58,62 @@ endpoints.get('/nivel2/candidato', (req, resp) => {
 }); //http://localhost:5010/nivel2/candidato?notaCandidato=8&notaMinima=7&notaCorte=7
 
 
+endpoints.post('/nivel2/ordenacao', (req, resp) => {
+    
+    let numeros = req.body.numeros; 
+    let ordem = '';
+    let crescente = true;
+    let decrescente = true;
+
+    
+    for (let i = 0; i < numeros.length - 1; i++) {
+        if (numeros[i] < numeros[i+1]) {
+            decrescente = false; 
+        }
+        if (numeros[i] > numeros[i+1]) {
+            crescente = false; 
+        }
+    }
+
+    if (crescente) {
+        ordem = 'Crescente';
+    } else if (decrescente) {
+        ordem = 'Decrescente';
+    } else {
+        ordem = 'Desordenados';
+    }
+
+    resp.send({
+        ordem: ordem
+    });
+    //http://localhost:5010/nivel2/ordenacao
+    /**BODY: {
+            "numeros": [30, 20, 10]
+}                       **/
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export default endpoints;

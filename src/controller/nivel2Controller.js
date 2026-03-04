@@ -97,23 +97,4 @@ endpoints.post('/nivel2/ordenacao', (req, resp) => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export default endpoints;
